@@ -6,7 +6,7 @@ namespace CS.Impl._01_Basic
     {
         public string SayHello()
         {
-            throw new NotImplementedException();
+            return "Hello Jounad Tourvieille";
         }
     }
 }

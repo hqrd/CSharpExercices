@@ -6,7 +6,18 @@ namespace CS.Impl._01_Basic
     {
         public string Reverse(string sentence)
         {
-            throw new NotImplementedException();
+            var reversedSentence = string.Empty;
+            var wordsOfSentence = sentence.Split(" ");
+
+            for (int i = wordsOfSentence.Length - 1; i >= 0; i--)
+            {
+                reversedSentence += wordsOfSentence[i];
+                reversedSentence += " ";
+            }
+
+            reversedSentence = reversedSentence.Remove(reversedSentence.Length - 1, 1);
+
+            return reversedSentence;
         }
     }
 }

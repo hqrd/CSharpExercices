@@ -72,5 +72,21 @@ namespace CS.Tests._02_Intermediate
             Assert.IsTrue(isRadarPalindrome);
             Assert.IsFalse(isWrongPalindrome);
         }
+
+        [TestMethod]
+        [Description("Write a program to Check Euler problem 5.")]
+        public void Euler5()
+        {
+            // Arrange
+            var recursion = new Recursion();
+
+            // Act
+            var res10 = recursion.GetSmallestDivisableByAllWithoutRemainder(10);
+            var res20 = recursion.GetSmallestDivisableByAllWithoutRemainder(20);
+
+            // Assert
+            Assert.AreEqual(2520, res10);
+            Assert.AreEqual(232792560, res20);
+        }
     }
 }

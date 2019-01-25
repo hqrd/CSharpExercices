@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CS.Impl._01_Basic
 {
@@ -7,18 +8,19 @@ namespace CS.Impl._01_Basic
     {
         public int Sum(int a, int b)
         {
-            throw new NotImplementedException();
+            return a + b;
         }
 
         public int Divide(int a, int b)
         {
-            throw new NotImplementedException();
+            if (b == 0)
+                throw new DivideByZeroException();
+            return a / b;
         }
 
         public int SumTable(IEnumerable<int> integersTable)
         {
-            throw new NotImplementedException();
+            return integersTable.Sum(x => x);
         }
     }
 }
-
