@@ -105,7 +105,7 @@ namespace CS.Impl._02_Intermediate
 
         public bool IsDivisableByAllNumbersWithoutRemainder(int number, int from, int to)
         {
-            for (int i = from; i <= to; i++)
+            for (int i = to; i >= from; i--)
             {
                 if (number % i != 0) return false;
             }

@@ -4,13 +4,22 @@ namespace CS.Impl._04_Advanced
 {
     public abstract class Shape
     {
-        public abstract double GetArea();
+        protected double area;
+        protected double perimeter;
 
-        public abstract double GetPerimeter();
+        public double GetArea()
+        {
+            return area;
+        }
+
+        public double GetPerimeter()
+        {
+            return perimeter;
+        }
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return this.GetType().Name;
         }
     }
 
@@ -18,53 +27,29 @@ namespace CS.Impl._04_Advanced
     {
         public Circle(double radius)
         {
-            throw new NotImplementedException();
+            area = Math.Round(Math.PI * Math.Pow(radius, 2));
+            perimeter = Math.Round(2 * Math.PI * radius);
         }
 
-        public override double GetArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetPerimeter()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class Rectangle : Shape
     {
         public Rectangle(double length, double width)
         {
-            throw new NotImplementedException();
+            area = length * width;
+            perimeter = 2*(length + width);
         }
 
-        public override double GetArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetPerimeter()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class Square : Shape
     {
         public Square(double sideLength)
         {
-            throw new NotImplementedException();
+            area = sideLength * sideLength;
+            perimeter = 2 * (sideLength + sideLength);
         }
 
-        public override double GetArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override double GetPerimeter()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
