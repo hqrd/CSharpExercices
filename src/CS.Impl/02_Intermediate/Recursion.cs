@@ -47,6 +47,7 @@ namespace CS.Impl._02_Intermediate
 
         private bool IsPrime(int n, int current)
         {
+            if (current == 0) return false;
             if (current == 1)
             {
                 return true;
@@ -82,7 +83,7 @@ namespace CS.Impl._02_Intermediate
             var current = number * 2;
             while (true)
             {
-                if (IsDivisableByAllNumbersWithoutRemainder(current, 1, number-1))
+                if (IsDivisableByAllNumbersWithoutRemainder(current, 1, number - 1))
                 {
                     return current;
                 }
