@@ -7,6 +7,7 @@ namespace CS.Impl._04_Advanced
 {
     public class PermutationPrime
     {
+
         public int[] GetPermutationPrimes(int upperBound)
         {
             int[] res = new int[] { };
@@ -14,9 +15,7 @@ namespace CS.Impl._04_Advanced
 
             foreach (var number in Enumerable.Range(1, upperBound))
             {
-                char[] _chars = number.ToString().ToCharArray();
-                IEnumerable<IEnumerable<char>> permutations = GetPermutations(_chars, _chars.Length);
-                permutations = permutations.Append(_chars);
+                List<string> permutations = WordPermutation("", number.ToString());
                 var allPrime = true;
                 foreach (var value in permutations)
                 {
@@ -32,15 +31,24 @@ namespace CS.Impl._04_Advanced
             return res;
         }
 
-        static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> list, int length)
+
+        List<string> WordPermutation(string prefix, string word)
         {
-            if (length == 1) return list.Select(t => new T[] { t });
-
-            return GetPermutations(list, length - 1)
-                .SelectMany(t => list.Where(e => !t.Contains(e)),
-                    (t1, t2) => t1.Concat(new T[] { t2 }));
+            List<string> perms = new List<string>();
+            int n = word.Length;
+            if (n == 0)
+            {
+                perms.Add(prefix);
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    perms.AddRange(WordPermutation(prefix + word[i], word.Substring(0, i) + word.Substring(i + 1, n - (i + 1))));
+                }
+            }
+            return perms;
         }
-
 
     }
 }
